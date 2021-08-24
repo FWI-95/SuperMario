@@ -20,7 +20,7 @@ import com.brentaureli.mariobros.Sprites.Mario;
 public class Goomba extends com.brentaureli.mariobros.Sprites.Enemies.Enemy
 {
     private float stateTime;
-    private Animation walkAnimation;
+    private Animation<TextureRegion>walkAnimation;
     private Array<TextureRegion> frames;
     private boolean setToDestroy;
     private boolean destroyed;
@@ -32,7 +32,7 @@ public class Goomba extends com.brentaureli.mariobros.Sprites.Enemies.Enemy
         frames = new Array<TextureRegion>();
         for(int i = 0; i < 2; i++)
             frames.add(new TextureRegion(screen.getAtlas().findRegion("goomba"), i * 16, 0, 16, 16));
-        walkAnimation = new Animation(0.4f, frames);
+        walkAnimation = new Animation<TextureRegion>(0.4f, frames);
         stateTime = 0;
         setBounds(getX(), getY(), 16 / MarioBros.PPM, 16 / MarioBros.PPM);
         setToDestroy = false;

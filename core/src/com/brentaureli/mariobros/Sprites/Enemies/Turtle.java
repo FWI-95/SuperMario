@@ -22,7 +22,7 @@ public class Turtle extends Enemy {
     public State currentState;
     public State previousState;
     private float stateTime;
-    private Animation walkAnimation;
+    private Animation<TextureRegion>walkAnimation;
     private Array<TextureRegion> frames;
     private TextureRegion shell;
     private boolean setToDestroy;
@@ -35,7 +35,7 @@ public class Turtle extends Enemy {
         frames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 0, 0, 16, 24));
         frames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 16, 0, 16, 24));
         shell = new TextureRegion(screen.getAtlas().findRegion("turtle"), 64, 0, 16, 24);
-        walkAnimation = new Animation(0.2f, frames);
+        walkAnimation = new Animation<TextureRegion>(0.2f, frames);
         currentState = previousState = State.WALKING;
 
         setBounds(getX(), getY(), 16 / MarioBros.PPM, 24 / MarioBros.PPM);

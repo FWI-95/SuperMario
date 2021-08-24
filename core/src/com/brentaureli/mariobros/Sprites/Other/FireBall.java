@@ -22,7 +22,7 @@ public class FireBall extends Sprite {
     PlayScreen screen;
     World world;
     Array<TextureRegion> frames;
-    Animation fireAnimation;
+    Animation<TextureRegion>fireAnimation;
     float stateTime;
     boolean destroyed;
     boolean setToDestroy;
@@ -37,7 +37,7 @@ public class FireBall extends Sprite {
         for(int i = 0; i < 4; i++){
             frames.add(new TextureRegion(screen.getAtlas().findRegion("fireball"), i * 8, 0, 8, 8));
         }
-        fireAnimation = new Animation(0.2f, frames);
+        fireAnimation = new Animation<TextureRegion>(0.2f, frames);
         setRegion(fireAnimation.getKeyFrame(0));
         setBounds(x, y, 6 / MarioBros.PPM, 6 / MarioBros.PPM);
         defineFireBall();

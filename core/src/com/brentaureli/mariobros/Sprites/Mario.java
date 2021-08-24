@@ -33,13 +33,13 @@ public class Mario extends Sprite {
     public Body b2body;
 
     private TextureRegion marioStand;
-    private Animation marioRun;
+    private Animation<TextureRegion>marioRun;
     private TextureRegion marioJump;
     private TextureRegion marioDead;
     private TextureRegion bigMarioStand;
     private TextureRegion bigMarioJump;
-    private Animation bigMarioRun;
-    private Animation growMario;
+    private Animation<TextureRegion>bigMarioRun;
+    private Animation<TextureRegion>growMario;
 
     private float stateTimer;
     private boolean runningRight;
@@ -63,28 +63,28 @@ public class Mario extends Sprite {
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
 
-        //get run animation frames and add them to marioRun Animation
+        //get run Animation<TextureRegion>frames and add them to marioRun Animation
         for(int i = 1; i < 4; i++)
             frames.add(new TextureRegion(screen.getAtlas().findRegion("little_mario"), i * 16, 0, 16, 16));
-        marioRun = new Animation(0.1f, frames);
+        marioRun = new Animation<TextureRegion>(0.1f, frames);
 
         frames.clear();
 
         for(int i = 1; i < 4; i++)
             frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), i * 16, 0, 16, 32));
-        bigMarioRun = new Animation(0.1f, frames);
+        bigMarioRun = new Animation<TextureRegion>(0.1f, frames);
 
         frames.clear();
 
-        //get set animation frames from growing mario
+        //get set Animation<TextureRegion>frames from growing mario
         frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 240, 0, 16, 32));
         frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32));
         frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 240, 0, 16, 32));
         frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32));
-        growMario = new Animation(0.2f, frames);
+        growMario = new Animation<TextureRegion>(0.2f, frames);
 
 
-        //get jump animation frames and add them to marioJump Animation
+        //get jump Animation<TextureRegion>frames and add them to marioJump Animation
         marioJump = new TextureRegion(screen.getAtlas().findRegion("little_mario"), 80, 0, 16, 16);
         bigMarioJump = new TextureRegion(screen.getAtlas().findRegion("big_mario"), 80, 0, 16, 32);
 
@@ -142,7 +142,7 @@ public class Mario extends Sprite {
 
         TextureRegion region;
 
-        //depending on the state, get corresponding animation keyFrame.
+        //depending on the state, get corresponding Animation<TextureRegion>keyFrame.
         switch(currentState){
             case DEAD:
                 region = marioDead;
